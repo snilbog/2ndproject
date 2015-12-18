@@ -14,12 +14,9 @@ var yelp = new Yelp({
 
 router.get('/', function(req, res) {
 
-  console.log(yelp);
-
   var lat = req.query.latitude;
   var lng = req.query.longitude;
   yelp.search({term: "Restaurants", ll: lat+','+lng }, function(error, data) {
-    console.log('Here is our Yelp data:', data);
     // res.send(data)
     res.render('index', {data:data})
     // res.render('index', {data:data});
