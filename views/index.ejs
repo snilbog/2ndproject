@@ -1,0 +1,34 @@
+
+
+<h1>Fugeddaboutit!</h1>
+
+<form action="/places" method="GET" role="form">
+  <legend>You want gross food?</legend>
+
+  <div class="form-group">
+    <label for="">All results are Rated above a 3.5!</label>
+    <!-- <input type="text" class="form-control" id="" placeholder="ex. The Rock" name="q"> -->
+    <input name="latitude" id="latitude" type="hidden">
+    <input name="longitude" id="longitude" type="hidden">
+  </div>
+  <button type="submit" class="btn btn-primary">EAT!!!!</button>
+</form>
+
+<% if(typeof data !== 'undefined') { %>
+	<div>
+	<% data.businesses.forEach(function(place){ if(place.rating > 3.5) { %>
+		<a href="<%= place.url %>"><h1><%= place.name%></h1></a>
+		<a href="<%= place.url  %>"><img src="<%= place.image_url %>"></a>
+		<img src='<%= place.rating_img_url%>'>
+		<% if(currentUser) { %>
+			<form method="POST" action="/favorites" class="favorite-form">
+				<input type="hidden" name="name" value="<%= place.name %>">
+				<input type="hidden" name="url" value="<%= place.url %>">
+				<input type="hidden" name="imageUrl" value="<%= place.image_url %>">
+				<input type="hidden" name="ratingImgUrl" value="<%= place.rating_img_url %>">
+				<input type="submit" value="Add to Favorites" class="btn btn-primary primary-btn">
+			</form>
+       	<% } %>
+	<% }}) %>
+	</div>
+<% } %>
