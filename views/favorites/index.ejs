@@ -1,8 +1,8 @@
 <% favorites.forEach(function(favorite) { %>
-  <div class="well">
+  <div>
     <a href="<%= favorite.url %>"><h1><%= favorite.name%></h1></a>
-	<a href="<%= favorite.url  %>"><img src="<%= favorite.image_url %>"></a>
-	<img src='<%= favorite.rating_img_url%>'>
+	<a href="<%= favorite.url  %>"><img src="<%= favorite.imgUrl %>"></a>
+	<img src='<%= favorite.ratingImgUrl %>'>
    
     <!-- <a href="" class="btn btn-danger pull-right delete-btn">Remove</a> -->
   </div>
