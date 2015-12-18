@@ -80,7 +80,4 @@ app.use('/places', require('./controllers/place'));
 app.use('/favorites', require('./controllers/favorite'));
 app.use('/auth', require('./controllers/auth'));
 //listen for connections
-var port = 3000;
-app.listen(port, function() {
-  console.log("You're listening to the rough sounds of port " + port);
-});
+app.listen(process.env.PORT || 3000)
